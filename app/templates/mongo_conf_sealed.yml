@@ -1,0 +1,18 @@
+apiVersion: bitnami.com/v1alpha1
+kind: SealedSecret
+metadata:
+  annotations:
+    sealedsecrets.bitnami.com/cluster-wide: "true"
+  creationTimestamp: null
+  name: mongo-conf
+spec:
+  encryptedData:
+    MONGO_URI: AgA0xV6ZVjGascROb56g3oolNJhBhMcO3yeyRhxEuNhYE7tjLtJkFsW3IXc69hn4zro9qRD9at8O2srxKYacWl29+y5ChGpR3eOY+wvM1wxnsdPQl5yv8/Lh9BH1NC65/eTNGv+Pmoc/HNaSabtMtu+ZCs58NhqnWjL/gpUPFsvZRgzeUOvmKQbCTIcMkygRvc9wp6VBG8MAR33IJtRipFmAkX9qzqXm/Kyib0xvH01Zn2ymDcpdyxzSfjjy4y6XiftKK75GXzp4G8p0Bt6IHLKfE++E5fRQAjcMKrpQExlLV+3D14Y4V050T19azsALPQQReYO66BmFLwiG4c1XMz9rNDDCa5t/gyBWiLm1zc9oggdWvogfcN/6ikpZi/CXC1LDvz6AZ9iDE8m7pOd1FbNINeMsmvfoQJIgsNkeh7LTt3Oy40+PXuYY7a9BSqgFKGL6GnvqtqxaVuyoAgYf5WpJuj4H2fFMzJweu2uH+4w2ai8Fkt1BV9Nrd5ZzDxH3zcXbEm+pbF+wcmjFe8WMHiz2iUUYuI5+ouG+FvENSl47h/MtPqWnT0ZuHXh92xQyJF4FRNr1Wj1FwmzxtuAyD3D24LQAdRi2Cm24UPJd79Ah52f652XX8dhGrizfpf+d6zGGa4denHho0xx+I8GZC0z/sbgZw+ARzBOS9+RT1pHib/eHQEuoDDBdqgT8dEScrBEiXTbC9ZIF/fXdwP3WXGcC9ypBWPPfHFDSY/kVI5pJpQH6GAPV337zvg4d9wu3ja9iMpz8TD/BYVSZLcCjQ7qyBtU3nW6otw==
+  template:
+    data: null
+    metadata:
+      annotations:
+        sealedsecrets.bitnami.com/cluster-wide: "true"
+      creationTimestamp: null
+      name: mongo-conf
+

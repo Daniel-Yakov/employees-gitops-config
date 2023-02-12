@@ -1,0 +1,27 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: {{ .Values.ingress.name }}
+  {{- if .Values.ingress.inableTLS }}
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-cluster-issuer
+  {{- end }}
+spec:
+  ingressClassName: nginx
+  {{- if .Values.ingress.inableTLS }}
+  tls:
+  - hosts:
+    - {{ .Values.ingress.hostname }}
+    secretName: crm-tls
+  {{- end }}
+  rules:
+  - host: {{ .Values.ingress.hostname }}
+    http:
+      paths:
+        - path: /
+          pathType: Prefix
+          backend:
+            service:
+              name: {{ .Values.service.name }}
+              port:
+                number: 3000

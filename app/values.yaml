@@ -1,0 +1,29 @@
+# Default values for crm.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+deployment:
+  name: employees-deployment
+  replicaCount: 2
+  image: 
+    name: 644435390668.dkr.ecr.eu-west-3.amazonaws.com/employees
+    tag: 1.0.1
+
+service:
+  name: employees-service
+   
+ingress:
+  inableTLS: false
+  name: crm-nginx-ingress
+  hostname: danielemployees.cloud
+
+# mongodb subchart
+mongodb:
+  architecture: replicaset
+  arbiter:
+    enabled: false
+  auth:
+    usernames: ["employees"]
+    databases: ["employees"]
+    existingSecret: "mongo-cred"
+  replicaCount: 3
