@@ -11,7 +11,12 @@ spec:
       # Secret resource that will be used to store the account's private key.
       name: letsencrypt-cluster-issuer-key
     solvers:
-    - http01:
-       ingress:
-         class: nginx
+    - dns01:
+        route53:
+          region: eu-west-3
+          hostedZoneID: Z09020131AOXZ3LFNC5KB
+          role: arn:aws:iam::644435390668:role/daniel-cert-manager-route53
+      selector:
+        dnsZones:
+          - {{ .Values.ingress.hostname }}
 {{- end }}

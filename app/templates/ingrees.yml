@@ -12,7 +12,7 @@ spec:
   tls:
   - hosts:
     - {{ .Values.ingress.hostname }}
-    secretName: crm-tls
+    secretName: employees-tls
   {{- end }}
   rules:
   - host: {{ .Values.ingress.hostname }}

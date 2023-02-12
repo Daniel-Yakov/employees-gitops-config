@@ -13,7 +13,7 @@ service:
   name: employees-service
    
 ingress:
-  inableTLS: false
+  inableTLS: true
   name: crm-nginx-ingress
   hostname: danielemployees.cloud
 
