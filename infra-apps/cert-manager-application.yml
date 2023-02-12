@@ -6,14 +6,13 @@ metadata:
 spec:
   project: default
   source:
-    helm:
-      parameters:
-      - name: "installCRDs"
-        value: true
     chart: cert-manager
     repoURL: https://charts.jetstack.io
     targetRevision: 1.11.0
     helm:
+      parameters:
+        - name: "installCRDs"
+          value: true
       releaseName: cert-manager
   destination:
     server: "https://kubernetes.default.svc"
