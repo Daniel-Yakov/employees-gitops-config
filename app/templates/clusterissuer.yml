@@ -1,0 +1,17 @@
+{{- if .Values.ingress.inableTLS }}
+apiVersion: cert-manager.io/v1
+kind: ClusterIssuer
+metadata:
+  name: letsencrypt-cluster-issuer
+spec:
+  acme:
+    server: https://acme-staging-v02.api.letsencrypt.org/directory
+    email: daniel577000@gmail.com
+    privateKeySecretRef:
+      # Secret resource that will be used to store the account's private key.
+      name: letsencrypt-cluster-issuer-key
+    solvers:
+    - http01:
+       ingress:
+         class: nginx
+{{- end }}
