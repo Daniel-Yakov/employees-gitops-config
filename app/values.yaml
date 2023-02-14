@@ -17,6 +17,10 @@ ingress:
   name: crm-nginx-ingress
   hostname: danielemployees.cloud
 
+kibana:
+  serviceName: kibana-kibana
+  port: 5601
+
 # mongodb subchart
 mongodb:
   architecture: replicaset
