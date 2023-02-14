@@ -1,0 +1,25 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: fluentd
+  namespace: argocd
+spec:
+  project: default
+  source:
+    chart: fluentd
+    repoURL: https://fluent.github.io/helm-charts
+    targetRevision: 0.3.9
+    helm:
+      releaseName: fluentd
+      valueFiles:
+      - fluentd-values.yaml
+  destination:
+    server: "https://kubernetes.default.svc"
+    namespace: logging
+
+  syncPolicy:
+     automated:
+       prune: true
+       selfHeal: true
+     syncOptions:
+      - CreateNamespace=true
