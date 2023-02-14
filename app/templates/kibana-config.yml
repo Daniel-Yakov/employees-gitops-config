@@ -9,49 +9,49 @@ data:
     #!/bin/sh
     
     #Wait for Kibana to be available & healthy
-    function wait_for_kibana {
+    wait_for_kibana () {
         echo "Testing connection to Kibana"
         until $(curl -k -X GET http://${KIBANA_URL}:${KIBANA_PORT}/_cluster/health); do sleep 5; done
-        until [ "$(curl -k -X GET http://${KIBANA_URL}:${KIBANA_PORT}/_cluster/health | wc -l)" == "0" ]
+        until [ "$(curl -k -X GET http://${KIBANA_URL}:${KIBANA_PORT}/_cluster/health | wc -l)" = "0" ]
         do sleep 5
         done
     }
-    
+
     #Import data view
-    function import_data_view {
+    import_data_view () {
         echo "Importing data_view..."
-        OUTPUT=$(curl -k --user user:pwd -X POST http://${KIBANA_URL}:${KIBANA_PORT}/api/saved_objects/_import -H "kbn-xsrf: true" --form file=@/kibana/index_pattern.ndjson)
+        OUTPUT=$(curl -k -u "${USER}:${PASSWORD}" -X POST http://${KIBANA_URL}:${KIBANA_PORT}/api/saved_objects/_import -H "kbn-xsrf: true" --form file=@/kibana/file.ndjson)
         SUCCESS=$(echo ${OUTPUT} | grep -o '"successCount":1' | wc -l)
-        if [[ ${SUCCESS} == "1" ]]; then
-          printf "\n########## Imported data view successfully! #############################\n"
+        if [ ${SUCCESS} = "1" ]; then
+            printf "\n########## Imported data view successfully! #############################\n"
         else
-          printf "\n########## Failure while importing data view #############\n"
+            printf "\n########## Failure while importing data view #############\n"
         fi
         echo ${OUTPUT}
     }
-    
+
     #Import dashboards
-    function import_dashboards {
+    import_dashboards() {
         echo "Importing dashboards..."
-        OUTPUT=$(curl --user user:pwd -X POST http://${KIBANA_URL}:${KIBANA_PORT}/api/kibana/dashboards/import?exclude=index-pattern -H 'kbn-xsrf: true' -H 'Content-Type: application/json' -d @/kibana/dashboards.json)
+        OUTPUT=$(curl -u "${USER}:${PASSWORD}" -X POST http://${KIBANA_URL}:${KIBANA_PORT}/api/kibana/dashboards/import?exclude=index-pattern -H 'kbn-xsrf: true' -H 'Content-Type: application/json' -d @/kibana/file.json)
         SUCCESS=$(echo ${OUTPUT} | grep -o '"successCount":1' | wc -l)
-        if [[ ${SUCCESS} == "1" ]]; then
-          printf "\n########## Imported dashboards successfully! #############################\n"
+        if [ ${SUCCESS} = "1" ]; then
+            printf "\n########## Imported dashboards successfully! #############################\n"
         else
-          printf "\n########## Failure while importing dashboards #############\n"
+            printf "\n########## Failure while importing dashboards #############\n"
         fi
         echo ${OUTPUT}
     }
-    
+
     wait_for_kibana
     import_data_view
     import_dashboards
 
-  index_pattern.ndjson: |
+  file.ndjson: |
     {"attributes":{"fieldAttrs":"{}","fieldFormatMap":"{}","fields":"[]","name":"employees-logs","runtimeFieldMap":"{}","sourceFilters":"[]","timeFieldName":"@timestamp","title":"logstash-2023.02.14","typeMeta":"{}"},"coreMigrationVersion":"8.5.1","id":"b8e4dce9-cd72-44f3-b458-1fcccbac279d","migrationVersion":{"index-pattern":"8.0.0"},"references":[],"type":"index-pattern","updated_at":"2023-02-14T09:38:57.383Z","version":"WzE3NywxXQ=="}
     {"excludedObjects":[],"excludedObjectsCount":0,"exportedCount":1,"missingRefCount":0,"missingReferences":[]}
 
-  dashboards.json: |
+  file.json: |
     {
       "version": "8.5.1",
       "objects": [
