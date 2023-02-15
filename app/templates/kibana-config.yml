@@ -112,7 +112,7 @@ data:
           "version": "WzE3NywxXQ==",
           "attributes": {
             "fieldAttrs": "{}",
-            "title": "logstash-2023.02.14",
+            "title": "logstash-employees",
             "timeFieldName": "@timestamp",
             "sourceFilters": "[]",
             "fields": "[]",
