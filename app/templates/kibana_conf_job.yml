@@ -1,12 +1,12 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: kibana-import
+  name: {{ .Values.kibana.jobName }}
   annotations:
     "helm.sh/hook": post-install
     "helm.sh/hook-weight": "5"
     "helm.sh/hook-delete-policy": before-hook-creation,hook-succeeded
-  namespace: logging
+  namespace: {{ .Values.kibana.namespace }}
 spec:
   backoffLimit: 0
   template:
@@ -23,13 +23,16 @@ spec:
         imagePullPolicy: IfNotPresent
         env:
         - name: KIBANA_URL
-          value: "{{ .Values.kibana.serviceName }}"
+          value: {{ .Values.kibana.serviceName | quote }}
         - name: KIBANA_PORT
-          value: "{{ .Values.kibana.port }}"
+          value: {{ .Values.kibana.port | quote }}
         - name: USER
-          value: "elastic"
+          value: {{ .Values.kibana.userName | quote }}
         - name: PASSWORD
-          value: "MTIzNDU2"
+          valueFrom:
+            secretKeyRef:
+              name: kibana-secret
+              key: password
         command: ["/bin/sh","/kibana/curl-script.sh"]
         volumeMounts:
         - name: kibana-data

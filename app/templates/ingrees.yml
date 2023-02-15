@@ -2,20 +2,20 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: {{ .Values.ingress.name }}
-  {{- if .Values.ingress.inableTLS }}
+  {{- if .Values.tls.enable }}
   annotations:
     cert-manager.io/cluster-issuer: letsencrypt-cluster-issuer
   {{- end }}
 spec:
-  ingressClassName: nginx
-  {{- if .Values.ingress.inableTLS }}
+  ingressClassName: {{ .Values.ingress.className }}
+  {{- if .Values.tls.enable }}
   tls:
   - hosts:
-    - {{ .Values.ingress.hostname }}
+    - {{ .Values.tls.hostname }}
     secretName: employees-tls
   {{- end }}
   rules:
-  - host: {{ .Values.ingress.hostname }}
+  - host: {{ .Values.tls.hostname }}
     http:
       paths:
         - path: /
@@ -24,4 +24,4 @@ spec:
             service:
               name: {{ .Values.service.name }}
               port:
-                number: 3000
+                number: {{ .Values.service.portListen }}

@@ -11,15 +11,109 @@ deployment:
 
 service:
   name: employees-service
+  portListen: 3000
+  portForward: 3000
+
+tls:
+  inable: true
+  prodCertificate: false
+  hostname: danielemployees.cloud
+  email: daniel577000@gmail.com
+  awsRegion: eu-west-3
+  awsHostedZoneID: Z09020131AOXZ3LFNC5KB
+  awsRole: arn:aws:iam::644435390668:role/daniel-cert-manager-route53
    
 ingress:
-  inableTLS: true
-  name: crm-nginx-ingress
-  hostname: danielemployees.cloud
+  name: employees-nginx-ingress
+  className: nginx
 
 kibana:
+  namespace: logging
+  jobName: kibana-import
   serviceName: kibana-kibana
+  userName: elastic
   port: 5601
+  dataViewImported: |
+    {"attributes":{"fieldAttrs":"{}","fieldFormatMap":"{}","fields":"[]","name":"employees-logs","runtimeFieldMap":"{}","sourceFilters":"[]","timeFieldName":"@timestamp","title":"logstash-employees","typeMeta":"{}"},"coreMigrationVersion":"8.5.1","id":"b8e4dce9-cd72-44f3-b458-1fcccbac279d","migrationVersion":{"index-pattern":"8.0.0"},"references":[],"type":"index-pattern","updated_at":"2023-02-14T09:38:57.383Z","version":"WzE3NywxXQ=="}
+    {"excludedObjects":[],"excludedObjectsCount":0,"exportedCount":1,"missingRefCount":0,"missingReferences":[]}
+  dashBoardImported: |
+    {
+      "version": "8.5.1",
+      "objects": [
+        {
+          "id": "4574c550-ac5d-11ed-9304-27416c844b60",
+          "type": "dashboard",
+          "namespaces": [
+            "default"
+          ],
+          "updated_at": "2023-02-14T12:29:28.061Z",
+          "version": "WzE0NjAsMV0=",
+          "attributes": {
+            "title": "employees-data-log",
+            "hits": 0,
+            "description": "logs from the employees app",
+            "panelsJSON": "[{\"version\":\"8.5.1\",\"type\":\"lens\",\"gridData\":{\"x\":0,\"y\":0,\"w\":18,\"h\":15,\"i\":\"e83eb686-5861-43bb-8abd-088e399708c1\"},\"panelIndex\":\"e83eb686-5861-43bb-8abd-088e399708c1\",\"embeddableConfig\":{\"attributes\":{\"title\":\"\",\"visualizationType\":\"lnsPie\",\"type\":\"lens\",\"references\":[{\"type\":\"index-pattern\",\"id\":\"b8e4dce9-cd72-44f3-b458-1fcccbac279d\",\"name\":\"indexpattern-datasource-layer-8c57ea19-3d48-4f56-88b1-8af74476f0d4\"}],\"state\":{\"visualization\":{\"shape\":\"pie\",\"layers\":[{\"layerId\":\"8c57ea19-3d48-4f56-88b1-8af74476f0d4\",\"primaryGroups\":[\"da0d0e40-b462-4507-9bfe-e8dec9b41910\"],\"metric\":\"16c1347c-8327-4fec-997c-ad60f6f6c91a\",\"numberDisplay\":\"percent\",\"categoryDisplay\":\"default\",\"legendDisplay\":\"show\",\"nestedLegend\":false,\"layerType\":\"data\",\"percentDecimals\":1,\"truncateLegend\":true,\"legendPosition\":\"right\"}]},\"query\":{\"query\":\"\",\"language\":\"kuery\"},\"filters\":[],\"datasourceStates\":{\"indexpattern\":{\"layers\":{\"8c57ea19-3d48-4f56-88b1-8af74476f0d4\":{\"columns\":{\"da0d0e40-b462-4507-9bfe-e8dec9b41910\":{\"label\":\"Top 5 values of meta.req.url.keyword\",\"dataType\":\"string\",\"operationType\":\"terms\",\"scale\":\"ordinal\",\"sourceField\":\"meta.req.url.keyword\",\"isBucketed\":true,\"params\":{\"size\":5,\"orderBy\":{\"type\":\"column\",\"columnId\":\"16c1347c-8327-4fec-997c-ad60f6f6c91a\"},\"orderDirection\":\"desc\",\"otherBucket\":true,\"missingBucket\":false,\"parentFormat\":{\"id\":\"terms\"}}},\"16c1347c-8327-4fec-997c-ad60f6f6c91a\":{\"label\":\"Count of records\",\"customLabel\":false,\"dataType\":\"number\",\"operationType\":\"count\",\"isBucketed\":false,\"scale\":\"ratio\",\"sourceField\":\"___records___\",\"params\":{\"emptyAsNull\":true}}},\"columnOrder\":[\"da0d0e40-b462-4507-9bfe-e8dec9b41910\",\"16c1347c-8327-4fec-997c-ad60f6f6c91a\"],\"incompleteColumns\":{}}}}},\"internalReferences\":[],\"adHocDataViews\":{}}},\"hidePanelTitles\":false,\"enhancements\":{}},\"title\":\"Routes access\"},{\"version\":\"8.5.1\",\"type\":\"lens\",\"gridData\":{\"x\":18,\"y\":0,\"w\":11,\"h\":15,\"i\":\"e6a0e485-69c4-487e-863e-a1d464ee3bd8\"},\"panelIndex\":\"e6a0e485-69c4-487e-863e-a1d464ee3bd8\",\"embeddableConfig\":{\"attributes\":{\"title\":\"\",\"visualizationType\":\"lnsPie\",\"type\":\"lens\",\"references\":[{\"type\":\"index-pattern\",\"id\":\"b8e4dce9-cd72-44f3-b458-1fcccbac279d\",\"name\":\"indexpattern-datasource-layer-81431e6c-5b7b-4ae1-b4c4-77bde19c2251\"}],\"state\":{\"visualization\":{\"shape\":\"donut\",\"layers\":[{\"layerId\":\"81431e6c-5b7b-4ae1-b4c4-77bde19c2251\",\"primaryGroups\":[\"3fe23596-4ab6-4e6f-af84-e78522a739e1\"],\"metric\":\"beb5ce85-393a-4e59-8644-3726d03c31c1\",\"numberDisplay\":\"percent\",\"categoryDisplay\":\"default\",\"legendDisplay\":\"default\",\"nestedLegend\":false,\"layerType\":\"data\",\"collapseFns\":{\"429ebdfb-3c6e-4a4d-b48e-431eba2aac06\":\"\"}}]},\"query\":{\"query\":\"\",\"language\":\"kuery\"},\"filters\":[],\"datasourceStates\":{\"indexpattern\":{\"layers\":{\"81431e6c-5b7b-4ae1-b4c4-77bde19c2251\":{\"columns\":{\"3fe23596-4ab6-4e6f-af84-e78522a739e1\":{\"label\":\"Top value of meta.req.headers.user-agent.keyword\",\"dataType\":\"string\",\"operationType\":\"terms\",\"scale\":\"ordinal\",\"sourceField\":\"meta.req.headers.user-agent.keyword\",\"isBucketed\":true,\"params\":{\"size\":1,\"orderBy\":{\"type\":\"column\",\"columnId\":\"beb5ce85-393a-4e59-8644-3726d03c31c1\"},\"orderDirection\":\"desc\",\"otherBucket\":true,\"missingBucket\":false,\"parentFormat\":{\"id\":\"terms\"}}},\"beb5ce85-393a-4e59-8644-3726d03c31c1\":{\"label\":\"Count of records\",\"customLabel\":false,\"dataType\":\"number\",\"operationType\":\"count\",\"isBucketed\":false,\"scale\":\"ratio\",\"sourceField\":\"___records___\",\"params\":{\"emptyAsNull\":true}}},\"columnOrder\":[\"3fe23596-4ab6-4e6f-af84-e78522a739e1\",\"beb5ce85-393a-4e59-8644-3726d03c31c1\"],\"incompleteColumns\":{}}}}},\"internalReferences\":[],\"adHocDataViews\":{}}},\"hidePanelTitles\":false,\"enhancements\":{}},\"title\":\"Most popular client agent\"},{\"version\":\"8.5.1\",\"type\":\"lens\",\"gridData\":{\"x\":29,\"y\":0,\"w\":19,\"h\":15,\"i\":\"0994c37b-a3af-4b98-8f09-dec5727b57dd\"},\"panelIndex\":\"0994c37b-a3af-4b98-8f09-dec5727b57dd\",\"embeddableConfig\":{\"attributes\":{\"title\":\"\",\"visualizationType\":\"lnsXY\",\"type\":\"lens\",\"references\":[{\"type\":\"index-pattern\",\"id\":\"b8e4dce9-cd72-44f3-b458-1fcccbac279d\",\"name\":\"indexpattern-datasource-layer-14059d04-7024-4637-a223-ed12b7c7b390\"}],\"state\":{\"visualization\":{\"legend\":{\"isVisible\":true,\"position\":\"right\"},\"valueLabels\":\"hide\",\"fittingFunction\":\"None\",\"axisTitlesVisibilitySettings\":{\"x\":true,\"yLeft\":true,\"yRight\":true},\"tickLabelsVisibilitySettings\":{\"x\":true,\"yLeft\":true,\"yRight\":true},\"labelsOrientation\":{\"x\":0,\"yLeft\":0,\"yRight\":0},\"gridlinesVisibilitySettings\":{\"x\":true,\"yLeft\":true,\"yRight\":true},\"preferredSeriesType\":\"bar_stacked\",\"layers\":[{\"layerId\":\"14059d04-7024-4637-a223-ed12b7c7b390\",\"accessors\":[\"0df7dc23-f5cf-4e16-84ac-47f67ee0c79f\"],\"position\":\"top\",\"seriesType\":\"bar_stacked\",\"showGridlines\":false,\"layerType\":\"data\",\"yConfig\":[{\"forAccessor\":\"0df7dc23-f5cf-4e16-84ac-47f67ee0c79f\",\"color\":\"#6092c0\"}],\"xAccessor\":\"0b308fd1-3b3d-4849-be1f-2a424176b44a\"}]},\"query\":{\"query\":\"\",\"language\":\"kuery\"},\"filters\":[],\"datasourceStates\":{\"indexpattern\":{\"layers\":{\"14059d04-7024-4637-a223-ed12b7c7b390\":{\"columns\":{\"0b308fd1-3b3d-4849-be1f-2a424176b44a\":{\"label\":\"status codes\",\"dataType\":\"number\",\"operationType\":\"terms\",\"scale\":\"ordinal\",\"sourceField\":\"meta.res.statusCode\",\"isBucketed\":true,\"params\":{\"size\":5,\"orderBy\":{\"type\":\"column\",\"columnId\":\"0df7dc23-f5cf-4e16-84ac-47f67ee0c79f\"},\"orderDirection\":\"desc\",\"otherBucket\":true,\"missingBucket\":false,\"parentFormat\":{\"id\":\"terms\"}},\"customLabel\":true},\"0df7dc23-f5cf-4e16-84ac-47f67ee0c79f\":{\"label\":\"response code count\",\"customLabel\":true,\"dataType\":\"number\",\"operationType\":\"count\",\"isBucketed\":false,\"scale\":\"ratio\",\"sourceField\":\"meta.res.statusCode\",\"params\":{\"emptyAsNull\":true}}},\"columnOrder\":[\"0b308fd1-3b3d-4849-be1f-2a424176b44a\",\"0df7dc23-f5cf-4e16-84ac-47f67ee0c79f\"],\"incompleteColumns\":{}}}}},\"internalReferences\":[],\"adHocDataViews\":{}}},\"hidePanelTitles\":false,\"enhancements\":{}},\"title\":\"status code\"},{\"version\":\"8.5.1\",\"type\":\"lens\",\"gridData\":{\"x\":0,\"y\":15,\"w\":48,\"h\":10,\"i\":\"cf8c2052-01c4-4270-97fd-d4bd1b2e4514\"},\"panelIndex\":\"cf8c2052-01c4-4270-97fd-d4bd1b2e4514\",\"embeddableConfig\":{\"attributes\":{\"title\":\"\",\"visualizationType\":\"lnsMetric\",\"type\":\"lens\",\"references\":[{\"type\":\"index-pattern\",\"id\":\"b8e4dce9-cd72-44f3-b458-1fcccbac279d\",\"name\":\"indexpattern-datasource-layer-e1827c5a-afc3-4c04-9e12-92bdc871693d\"}],\"state\":{\"visualization\":{\"layerId\":\"e1827c5a-afc3-4c04-9e12-92bdc871693d\",\"layerType\":\"data\",\"metricAccessor\":\"5211ab54-a28e-41cf-b2fe-73de22c91a58\",\"breakdownByAccessor\":\"0ccd881e-611e-4843-b10c-c7df1e89c991\",\"palette\":{\"name\":\"custom\",\"type\":\"palette\",\"params\":{\"steps\":3,\"name\":\"custom\",\"reverse\":false,\"rangeType\":\"percent\",\"rangeMin\":38,\"rangeMax\":null,\"progression\":\"fixed\",\"stops\":[{\"color\":\"#cc5642\",\"stop\":38},{\"color\":\"#209280\",\"stop\":38},{\"color\":\"#d6bf57\",\"stop\":100}],\"colorStops\":[{\"color\":\"#cc5642\",\"stop\":38},{\"color\":\"#209280\",\"stop\":38},{\"color\":\"#d6bf57\",\"stop\":38}],\"continuity\":\"above\",\"maxSteps\":5}}},\"query\":{\"query\":\"\",\"language\":\"kuery\"},\"filters\":[],\"datasourceStates\":{\"indexpattern\":{\"layers\":{\"e1827c5a-afc3-4c04-9e12-92bdc871693d\":{\"columns\":{\"0ccd881e-611e-4843-b10c-c7df1e89c991\":{\"label\":\"Top 5 values of meta.req.method.keyword\",\"dataType\":\"string\",\"operationType\":\"terms\",\"scale\":\"ordinal\",\"sourceField\":\"meta.req.method.keyword\",\"isBucketed\":true,\"params\":{\"size\":5,\"orderBy\":{\"type\":\"alphabetical\",\"fallback\":true},\"orderDirection\":\"asc\",\"otherBucket\":true,\"missingBucket\":false,\"parentFormat\":{\"id\":\"terms\"}}},\"5211ab54-a28e-41cf-b2fe-73de22c91a58X0\":{\"label\":\"Part of count()\",\"customLabel\":true,\"dataType\":\"number\",\"operationType\":\"count\",\"isBucketed\":false,\"scale\":\"ratio\",\"sourceField\":\"___records___\",\"params\":{\"emptyAsNull\":false}},\"5211ab54-a28e-41cf-b2fe-73de22c91a58\":{\"label\":\"count()\",\"dataType\":\"number\",\"operationType\":\"formula\",\"isBucketed\":false,\"scale\":\"ratio\",\"params\":{\"formula\":\"count()\",\"isFormulaBroken\":false,\"format\":{\"id\":\"number\",\"params\":{\"decimals\":2}}},\"references\":[\"5211ab54-a28e-41cf-b2fe-73de22c91a58X0\"]}},\"columnOrder\":[\"0ccd881e-611e-4843-b10c-c7df1e89c991\",\"5211ab54-a28e-41cf-b2fe-73de22c91a58\",\"5211ab54-a28e-41cf-b2fe-73de22c91a58X0\"],\"incompleteColumns\":{}}}}},\"internalReferences\":[],\"adHocDataViews\":{}}},\"enhancements\":{}}}]",
+            "optionsJSON": "{\"useMargins\":true,\"syncColors\":false,\"syncTooltips\":false,\"hidePanelTitles\":false}",
+            "version": 1,
+            "timeRestore": false,
+            "kibanaSavedObjectMeta": {
+              "searchSourceJSON": "{\"query\":{\"query\":\"\",\"language\":\"kuery\"},\"filter\":[]}"
+            }
+          },
+          "references": [
+            {
+              "type": "index-pattern",
+              "id": "b8e4dce9-cd72-44f3-b458-1fcccbac279d",
+              "name": "e83eb686-5861-43bb-8abd-088e399708c1:indexpattern-datasource-layer-8c57ea19-3d48-4f56-88b1-8af74476f0d4"
+            },
+            {
+              "type": "index-pattern",
+              "id": "b8e4dce9-cd72-44f3-b458-1fcccbac279d",
+              "name": "e6a0e485-69c4-487e-863e-a1d464ee3bd8:indexpattern-datasource-layer-81431e6c-5b7b-4ae1-b4c4-77bde19c2251"
+            },
+            {
+              "type": "index-pattern",
+              "id": "b8e4dce9-cd72-44f3-b458-1fcccbac279d",
+              "name": "0994c37b-a3af-4b98-8f09-dec5727b57dd:indexpattern-datasource-layer-14059d04-7024-4637-a223-ed12b7c7b390"
+            },
+            {
+              "type": "index-pattern",
+              "id": "b8e4dce9-cd72-44f3-b458-1fcccbac279d",
+              "name": "cf8c2052-01c4-4270-97fd-d4bd1b2e4514:indexpattern-datasource-layer-e1827c5a-afc3-4c04-9e12-92bdc871693d"
+            }
+          ],
+          "migrationVersion": {
+            "dashboard": "8.5.0"
+          },
+          "coreMigrationVersion": "8.5.1"
+        },
+        {
+          "id": "b8e4dce9-cd72-44f3-b458-1fcccbac279d",
+          "type": "index-pattern",
+          "namespaces": [
+            "default"
+          ],
+          "updated_at": "2023-02-14T09:38:57.383Z",
+          "version": "WzE3NywxXQ==",
+          "attributes": {
+            "fieldAttrs": "{}",
+            "title": "logstash-employees",
+            "timeFieldName": "@timestamp",
+            "sourceFilters": "[]",
+            "fields": "[]",
+            "fieldFormatMap": "{}",
+            "typeMeta": "{}",
+            "runtimeFieldMap": "{}",
+            "name": "employees-logs"
+          },
+          "references": [],
+          "migrationVersion": {
+            "index-pattern": "8.0.0"
+          },
+          "coreMigrationVersion": "8.5.1"
+        }
+      ]
+    }
 
 # mongodb subchart
 mongodb:

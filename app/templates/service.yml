@@ -7,5 +7,5 @@ spec:
   {{- include "deployment.labels" . | indent 4 }}
   ports:
     - protocol: TCP
-      port: 3000
-      targetPort: 3000
+      port: {{ .Values.service.portListen }}
+      targetPort: {{ .Values.service.portForward }}
