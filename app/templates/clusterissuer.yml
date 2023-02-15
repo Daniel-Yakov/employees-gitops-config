@@ -17,9 +17,9 @@ spec:
     solvers:
     - dns01:
         route53:
-          region: {{ .Values.tls.region }}
-          hostedZoneID: {{ .Values.tls.hostedZoneID }}
-          role: {{ .Values.tls.role }}
+          region: {{ .Values.tls.awsRegion }}
+          hostedZoneID: {{ .Values.tls.awsHostedZoneID }}
+          role: {{ .Values.tls.awsRole }}
       selector:
         dnsZones:
           - {{ .Values.tls.hostname }}
