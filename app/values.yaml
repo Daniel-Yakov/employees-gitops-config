@@ -15,7 +15,7 @@ service:
   portForward: 3000
 
 tls:
-  inable: true
+  enable: true
   prodCertificate: false
   hostname: danielemployees.cloud
   email: daniel577000@gmail.com
