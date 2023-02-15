@@ -47,10 +47,10 @@ data:
     import_data_view
     import_dashboards
 
-  file.ndjson: |-
-    {{ .Values.kibana.dataViewImported }}
+  file.ndjson: |
+{{ .Values.kibana.dataViewImported | nindent 4 }}
     
 
-  file.json: |-
-    {{ .Values.kibana.dashBoardImported }}
+  file.json: |
+{{ .Values.kibana.dashBoardImported | nindent 4 }}
     
