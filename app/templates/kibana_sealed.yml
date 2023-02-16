@@ -1,3 +1,4 @@
+{{- if .Values.kibana.importDashboards }}
 apiVersion: bitnami.com/v1alpha1
 kind: SealedSecret
 metadata:
@@ -18,4 +19,4 @@ spec:
       name: kibana-secret
       namespace: logging
     type: Opaque
-
+{{- end }}
