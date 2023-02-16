@@ -1,3 +1,4 @@
+{{- if .Values.kibana.importDashboards }}
 apiVersion: v1
 kind: ConfigMap
 metadata:
@@ -53,4 +54,5 @@ data:
 
   file.json: |
 {{ .Values.kibana.dashBoardImported | nindent 4 }}
+{{- end }}
     
