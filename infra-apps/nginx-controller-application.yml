@@ -11,14 +11,14 @@ spec:
     targetRevision: 4.4.2
     helm:
       releaseName: ingress-nginx 
-      values: |
+      values: |-
         controller: 
           metrics:
             enabled: true 
             service:
               annotations: {
-                  "prometheus.io/scrape": "true"
-                  "prometheus.io/port": "10254"
+                "prometheus.io/scrape": "true",
+                "prometheus.io/port": "10254"
               }
   destination:
     server: "https://kubernetes.default.svc"
