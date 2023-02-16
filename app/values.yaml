@@ -28,7 +28,7 @@ ingress:
   className: nginx
 
 kibana:
-  importDashboards: false
+  importDashboards: true
   namespace: logging
   jobName: kibana-import
   serviceName: kibana-kibana
