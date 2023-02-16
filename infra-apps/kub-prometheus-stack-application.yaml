@@ -19,7 +19,7 @@ spec:
         grafana:
           sidecar:
             dashboards:
-              searchNamespace=ALL
+              searchNamespace: ALL
   destination:
     server: "https://kubernetes.default.svc"
     namespace: monitoring
