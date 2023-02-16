@@ -6,7 +6,7 @@ metadata:
   name: nginx-dashboard
   namespace: monitoring
 data:
-  ingress_nginx.json: |-
+  ingress_nginx-dashboard.json: |-
     {
       "annotations": {
         "list": [
