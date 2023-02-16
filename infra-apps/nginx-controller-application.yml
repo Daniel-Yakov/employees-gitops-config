@@ -20,12 +20,6 @@ spec:
                 prometheus.io/scrape: "true",
                 prometheus.io/port: "10254"
               }    
-            serviceMonitor:
-              additionalLabels: {
-                release: "kube-prometheus-stack"
-              }
-              enabled: true
-              
   destination:
     server: "https://kubernetes.default.svc"
     namespace: app
