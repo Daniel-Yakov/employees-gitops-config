@@ -22,6 +22,7 @@ spec:
               annotations: {
                 searchNamespace: ALL
               }
+          defaultDashboardsEnabled: false
   destination:
     server: "https://kubernetes.default.svc"
     namespace: monitoring
