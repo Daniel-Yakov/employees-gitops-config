@@ -11,6 +11,11 @@ spec:
     targetRevision: 45.1.0
     helm:
       releaseName: kube-prometheus-stack
+      values: |-
+        prometheus:
+          prometheusSpec:
+            podMonitorSelectorNilUsesHelmValues: false
+            serviceMonitorSelectorNilUsesHelmValues: false
   destination:
     server: "https://kubernetes.default.svc"
     namespace: monitoring
