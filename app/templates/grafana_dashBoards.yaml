@@ -4,6 +4,7 @@ metadata:
   labels:
     grafana_dashboard: "1"
   name: nginx-dashboard
+  namespace: monitoring
 data:
   ingress_nginx.json: |-
     {
