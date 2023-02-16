@@ -18,7 +18,7 @@ spec:
             serviceMonitorSelectorNilUsesHelmValues: false
         grafana:
           dashboardProviders:
-            dashboardproviders.yaml: {
+            dashboardproviders.yaml: 
               apiVersion: 1
               providers:
               - name: 'default'
@@ -29,7 +29,6 @@ spec:
                 editable: true
                 options:
                   path: /var/lib/grafana/dashboards/default
-            }
           dashboardsConfigMaps: {
             default: "nginx-dashboard"
           }
