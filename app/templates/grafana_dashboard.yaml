@@ -542,7 +542,7 @@ data:
               "instant": false,
               "interval": "",
               "intervalFactor": 1,
-              "legendFormat": "{{ {{ }} ingress {{ }} }}",
+              "legendFormat": {{ "{{ }} ingress {{ }}" }},
               "metric": "network",
               "refId": "A",
               "step": 10
