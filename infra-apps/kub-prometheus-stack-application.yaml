@@ -17,9 +17,11 @@ spec:
             podMonitorSelectorNilUsesHelmValues: false
             serviceMonitorSelectorNilUsesHelmValues: false
         grafana:
-          sidecar:
-            dashboards:
-              searchNamespace: ALL
+          sidecar: 
+            dashboards: 
+              annotations: {
+                searchNamespace: ALL
+              }
   destination:
     server: "https://kubernetes.default.svc"
     namespace: monitoring
