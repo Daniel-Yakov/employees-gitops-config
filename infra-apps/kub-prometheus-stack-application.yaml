@@ -16,6 +16,10 @@ spec:
           prometheusSpec:
             podMonitorSelectorNilUsesHelmValues: false
             serviceMonitorSelectorNilUsesHelmValues: false
+        grafana:
+          sidecar:
+            dashboards:
+              searchNamespace=ALL
   destination:
     server: "https://kubernetes.default.svc"
     namespace: monitoring
