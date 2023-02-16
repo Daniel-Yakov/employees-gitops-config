@@ -950,7 +950,7 @@ data:
               "instant": false,
               "interval": "10s",
               "intervalFactor": 1,
-              "legendFormat": {{ "{{" }} controller_pod {{ "}}" }},
+              "legendFormat": {{ "{{" }}controller_pod{{ "}}" }},
               "metric": "container_memory_usage:sort_desc",
               "refId": "A",
               "step": 10
@@ -1052,7 +1052,7 @@ data:
               "instant": false,
               "interval": "10s",
               "intervalFactor": 1,
-              "legendFormat": "{{controller_pod}}",
+              "legendFormat": {{ "{{" }} controller_pod {{ "}}" }},
               "metric": "container_cpu",
               "refId": "A",
               "step": 10
@@ -1379,7 +1379,7 @@ data:
               "instant": true,
               "interval": "",
               "intervalFactor": 1,
-              "legendFormat": "{{ destination_service }}",
+              "legendFormat": {{ "{{" }} destination_service {{ "}}" }},
               "refId": "E"
             },
             {
