@@ -17,12 +17,19 @@ spec:
             podMonitorSelectorNilUsesHelmValues: false
             serviceMonitorSelectorNilUsesHelmValues: false
         grafana:
-          sidecar: 
-            dashboards: 
-              annotations: {
-                searchNamespace: ALL
-              }
-          defaultDashboardsEnabled: false
+          dashboardProviders:
+            dashboardproviders.yaml:
+            - name: dp1
+              orgId: 1
+              folder: ''
+              type: file
+              disableDeletion: false
+              editable: true
+              options:
+                path: /var/lib/grafana/dashboards/dp1
+          dashboardsConfigMaps: {
+            dp1: "nginx-dashboard"
+          }
   destination:
     server: "https://kubernetes.default.svc"
     namespace: monitoring
