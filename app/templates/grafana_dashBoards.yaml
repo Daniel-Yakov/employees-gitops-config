@@ -538,7 +538,7 @@ data:
               "instant": false,
               "interval": "",
               "intervalFactor": 1,
-              "legendFormat": "{{ ingress }}",
+              "legendFormat": {{ "{{" }} ingress {{ "}}" }},
               "metric": "network",
               "refId": "A",
               "step": 10
@@ -642,7 +642,7 @@ data:
               "instant": false,
               "interval": "10s",
               "intervalFactor": 1,
-              "legendFormat": "{{ ingress }}",
+              "legendFormat": {{ "{{" }} ingress {{ "}}" }},
               "metric": "container_memory_usage:sort_desc",
               "refId": "A",
               "step": 10
@@ -1173,7 +1173,7 @@ data:
               "hide": false,
               "instant": true,
               "intervalFactor": 1,
-              "legendFormat": "{{ ingress }}",
+              "legendFormat": {{ "{{" }} ingress {{ "}}" }},
               "refId": "C"
             },
             {
@@ -1182,7 +1182,7 @@ data:
               "hide": false,
               "instant": true,
               "intervalFactor": 1,
-              "legendFormat": "{{ ingress }}",
+              "legendFormat": {{ "{{" }} ingress {{ "}}" }},
               "refId": "D"
             },
             {
@@ -1191,7 +1191,7 @@ data:
               "hide": false,
               "instant": true,
               "intervalFactor": 1,
-              "legendFormat": "{{ destination_service }}",
+              "legendFormat": {{ "{{" }} destination_service {{ "}}" }},
               "refId": "E"
             },
             {
@@ -1201,7 +1201,7 @@ data:
               "instant": true,
               "interval": "",
               "intervalFactor": 1,
-              "legendFormat": "{{ ingress }}",
+              "legendFormat": {{ "{{" }} ingress {{ "}}" }},
               "refId": "F"
             },
             {
@@ -1209,7 +1209,7 @@ data:
               "format": "table",
               "instant": true,
               "intervalFactor": 1,
-              "legendFormat": "{{ ingress }}",
+              "legendFormat": {{ "{{" }} ingress {{ "}}" }},
               "refId": "G"
             }
           ],
@@ -1292,7 +1292,7 @@ data:
               "expr": "avg(nginx_ingress_controller_ssl_expire_time_seconds{kubernetes_pod_name=~\"$controller\",namespace=~\"$namespace\",ingress=~\"$ingress\"}) by (host) - time()",
               "format": "time_series",
               "intervalFactor": 1,
-              "legendFormat": "{{ host }}",
+              "legendFormat": {{ "{{" }} host {{ "}}" }},
               "metric": "gke_letsencrypt_cert_expiration",
               "refId": "A",
               "step": 1
