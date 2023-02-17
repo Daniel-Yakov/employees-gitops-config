@@ -54,7 +54,7 @@ spec:
             <filter **>
               @id filter_concat
               @type concat
-              key meta
+              key message
               multiline_end_regexp /\n$/
               separator ""
               timeout_label @NORMAL
