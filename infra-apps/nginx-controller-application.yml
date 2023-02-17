@@ -19,7 +19,12 @@ spec:
               annotations: {
                 prometheus.io/scrape: "true",
                 prometheus.io/port: "10254"
-              }    
+              } 
+            serviceMonitor:
+              additionalLabels: {
+                release: prometheus
+              }
+              enabled: true   
   destination:
     server: "https://kubernetes.default.svc"
     namespace: app
