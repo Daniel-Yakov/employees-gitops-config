@@ -12,9 +12,9 @@ spec:
     helm:
       releaseName: kube-prometheus-stack
       values: |-
+        defaultRules:
+          create: false
         prometheus:
-          defaultRules:
-            create: false
           prometheusSpec:
             podMonitorSelectorNilUsesHelmValues: false
             serviceMonitorSelectorNilUsesHelmValues: false
