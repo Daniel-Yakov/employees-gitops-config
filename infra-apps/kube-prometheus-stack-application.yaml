@@ -17,6 +17,8 @@ spec:
             podMonitorSelectorNilUsesHelmValues: false
             serviceMonitorSelectorNilUsesHelmValues: false
         grafana:
+          defaultDashboardsEnabled: false
+          defaultDashboardsTimezone: Israel
           sidecar:
             provider:
             allowUiUpdates: true
