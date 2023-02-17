@@ -32,6 +32,7 @@ spec:
             global:
               resolve_timeout: 5m
             route:
+              group_by: ['...']
               group_wait: 20s
               group_interval: 4m
               repeat_interval: 4h
