@@ -25,8 +25,8 @@ spec:
                 labels:
                   severity: warning
                 annotations:
-                  summary: "Instance {{ $labels.host }}: memory usage high"
-                  description: "{{ $labels.host }} use more than 10%"
+                  summary: "Instance {{ $labels.instance }}: memory usage high"
+                  description: "{{ $labels.instance }} use more than 10%"
         alertmanager:
           config:
             global:
@@ -46,7 +46,7 @@ spec:
               slack_configs:
               - api_url: 'https://hooks.slack.com/services/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'
                 channel: '#grafana-alerts'
-                title: 'test'
+                title: '[{{ .Status | toUpper }}{{ if eq .Status "firing" }}:{{ .Alerts.Firing | len }}{{ end }}]'
                 text: >-
                   {{ range .Alerts }}
                     *Alert:* {{ .Annotations.summary }} - `{{ .Labels.severity }}`
