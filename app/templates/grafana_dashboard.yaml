@@ -7,4 +7,4 @@ metadata:
     grafana_dashboard: "1"
 data:
   nginx-dashboard.json: |-
-{{ .Files.Get "ingress-nginx-dashboard.json" | indent 4 }}
+{{ (.Files.Get "ingress-nginx-dashboard.json").AsConfig | indent 4 }}
