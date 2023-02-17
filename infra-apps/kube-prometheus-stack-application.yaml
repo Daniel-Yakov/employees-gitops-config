@@ -14,17 +14,20 @@ spec:
       values: |-
         defaultRules:
           create: false
-        additionalPrometheusRulesMap:
+        additionalPrometheusRulesMap: {
           custom-rules:
             groups:
             - name: portfolio
               rules:
               - alert: InstanceHighMemoryUsage
-                expr: Last(100 - (avg by (instance) (node_memory_MemAvailable_bytes{job="node-exporter"}) / avg by (instance) (node_memory_MemTotal_bytes{job="node-exporter"}) * 100) > 10
+                expr: (100 - (avg by (instance) (node_memory_MemAvailable_bytes{job="node-exporter"}) / avg by (instance) (node_memory_MemTotal_bytes{job="node-exporter"}) * 100) > 10
                 for: 1m
+                labels:
+                  severity: warning
                 annotations:
                   summary: "Instance {{ $labels.host }}: memory usage high"
                   description: "{{ $labels.host }} use more than 10%"
+        }
         alertmanager:
           config:
             global:
@@ -33,18 +36,12 @@ spec:
               group_wait: 20s
               group_interval: 4m
               repeat_interval: 4h
-              receiver: 'null'
-              routes:
-              - receiver: 'slack-k8s'
+              receiver: 'slack-k8s'
             receivers:
-              - name: 'null'
               - name: 'slack-k8s'
                 slack_configs:
                 - api_url: 'https://hooks.slack.com/services/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'
                   channel: '#grafana-alerts'
-        additionalPrometheusRulesMap: {
-
-        }
         prometheus:
           prometheusSpec:
             podMonitorSelectorNilUsesHelmValues: false
