@@ -38,7 +38,7 @@ spec:
               repeat_interval: 4h
               receiver: 'null'
               routes:
-              - receiver: 'slack-notifications'
+              - receiver: 'slack-k8s'
                 continue: true
             receivers:
             - name: 'null'
