@@ -20,7 +20,7 @@ spec:
             - name: portfolio
               rules:
               - alert: InstanceHighMemoryUsage
-                expr: (100 - (avg by (instance) (node_memory_MemAvailable_bytes{job="node-exporter"}) / avg by (instance) (node_memory_MemTotal_bytes{job="node-exporter"}) * 100) > 10
+                expr: (100 - (avg by (instance) (node_memory_MemAvailable_bytes{job="node-exporter"}) / avg by (instance) (node_memory_MemTotal_bytes{job="node-exporter"})) * 100) > 10
                 for: 1m
                 labels:
                   severity: warning
