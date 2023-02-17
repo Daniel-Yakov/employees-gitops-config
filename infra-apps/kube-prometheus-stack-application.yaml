@@ -24,7 +24,7 @@ spec:
                 for: 1m
                 labels:
                   severity: warning
-                  alertname: `{{ $labels.alertname }}`
+                  alertname: {{ "$labels.alertname" }}
                 annotations:
                   summary: "Instance {{ $labels.instance }}: memory usage high"
                   description: "{{ $labels.instance }} use more than 10%"
