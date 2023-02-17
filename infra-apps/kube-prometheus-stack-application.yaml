@@ -46,7 +46,7 @@ spec:
               slack_configs:
               - api_url: 'https://hooks.slack.com/services/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'
                 channel: '#grafana-alerts'
-                title: '[{{ $labels.alertname }}]'
+                title: 'test'
                 text: >-
                   {{ range .Alerts }}
                     *Alert:* {{ .Annotations.summary }} - `{{ .Labels.severity }}`
