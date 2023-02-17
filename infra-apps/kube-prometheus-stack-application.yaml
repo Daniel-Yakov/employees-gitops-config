@@ -36,9 +36,7 @@ spec:
               group_wait: 20s
               group_interval: 4m
               repeat_interval: 4h
-              receiver: 'null'
-              - receiver: 'slack-k8s'
-                continue: true
+              receiver: 'slack-k8s'
             receivers:
             - name: 'null'
             - name: 'slack-k8s'
