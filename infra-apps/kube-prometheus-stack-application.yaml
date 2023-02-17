@@ -14,7 +14,7 @@ spec:
       values: |-
         defaultRules:
           create: false
-        additionalPrometheusRulesMap: {
+        additionalPrometheusRulesMap: 
           custom-rules:
             groups:
             - name: portfolio
@@ -27,7 +27,6 @@ spec:
                 annotations:
                   summary: "Instance {{ $labels.host }}: memory usage high"
                   description: "{{ $labels.host }} use more than 10%"
-        }
         alertmanager:
           config:
             global:
