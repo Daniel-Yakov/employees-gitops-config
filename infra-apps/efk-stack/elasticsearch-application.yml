@@ -10,9 +10,13 @@ spec:
     repoURL: https://helm.elastic.co
     targetRevision: 8.5.1
     helm:
-      parameters:
-        - name: "secret.password"
-          value: "MTIzNDU2"
+      values: |-
+        extraEnvs:
+        — name: ELASTIC_PASSWORD
+          valueFrom: 
+            secretKeyRef:
+                    name: elastic-secret
+                    key: password
       releaseName: elasticsearch
   destination:
     server: "https://kubernetes.default.svc"

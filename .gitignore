@@ -1,3 +1,4 @@
 app/templates/mongoConfSecret.yml
 app/templates/mongo-cred-secret.yml
 app/templates/kibana_secret.yml
+/infra-apps/efk-stack/elastic-secret.yaml

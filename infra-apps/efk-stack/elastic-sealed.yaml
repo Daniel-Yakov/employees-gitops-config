@@ -1,0 +1,21 @@
+apiVersion: bitnami.com/v1alpha1
+kind: SealedSecret
+metadata:
+  annotations:
+    sealedsecrets.bitnami.com/cluster-wide: "true"
+  creationTimestamp: null
+  name: elastic-secret
+  namespace: logging
+spec:
+  encryptedData:
+    password: AgCkrl/w1BSmY4tGfXEEE2p/N/2IFTif/HX5lwEhiXgBvBv+taLjw68TR2ooxZi1W7juDZ3KTFAjTuM8yWQ6Pbh9x2SmHmQZ8TF3L4ofjFlG6JgbWjZzFAJtco+HEFXZzBnZALTDyX6Cos22MEuD455D2KEFfjoJF63L+QYPFoAPgZkHeZhOED7wHw0rbcUgM9LWgfdZHkMMOOTg7AFFWGyiSX+njM3CR9nBmRCZ138p20L8AGdXYC/1hb1qTwslZ0LsQyF2yhfRzemeGxB6ESQmGzMaW3r6BrfpIu+BPtzq5GUMakAm5w51xQ5RUzDLR5fEX3WfGs3iIA4C3m0BYb4/k78EX0pxV8H4vQBJIiullHK1Eh7hRVoix5Zda5B8JBu+GqDCfZKe6nsSLpdS8kqn6qXBfy7DnLzf6KI21TokTfSF2L/CG1NLNMZ+mewAJJPxZuADU8Az17SzMltxDtWMTgIv7UWVJaXXTlYbRjM3uMRmBRJl5gvXY8a5oz4UMkxny9iCNuwrU8MFXm2EX+miTMBRg0V7TakpaXeLLiQFSiKjenAtN0cUbUdaTsrphfQrXvDzZ+JMMZwW9GawUc/LaXsZspC8Bk0RxFrUh3yp8H69NKLectvI+F0vlYXzFVJzBlKLbzR22tNelMV9jCuUeWMX8qnEq/xrDM8ImwNSZaEi84ENwWUgKQxP3aiAu6z4xI2dRICArg==
+  template:
+    data: null
+    metadata:
+      annotations:
+        sealedsecrets.bitnami.com/cluster-wide: "true"
+      creationTimestamp: null
+      name: elastic-secret
+      namespace: logging
+    type: Opaque
+

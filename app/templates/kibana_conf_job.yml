@@ -29,10 +29,11 @@ spec:
           value: {{ .Values.kibana.port | quote }}
         - name: USER
           value: {{ .Values.kibana.userName | quote }}
+          # found in elastic-sealed in infra-apps/
         - name: PASSWORD
           valueFrom:
             secretKeyRef:
-              name: kibana-secret
+              name: elastic-secret
               key: password
         command: ["/bin/sh","/kibana/curl-script.sh"]
         volumeMounts:
