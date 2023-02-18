@@ -71,6 +71,10 @@ spec:
             podMonitorSelectorNilUsesHelmValues: false
             serviceMonitorSelectorNilUsesHelmValues: false
         grafana:
+          admin:
+            existingSecret: "grafana-secret"
+            userKey: username
+            passwordKey: password
           defaultDashboardsEnabled: false
           defaultDashboardsTimezone: Israel
           sidecar:
