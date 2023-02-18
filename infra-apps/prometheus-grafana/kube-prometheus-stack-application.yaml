@@ -27,6 +27,14 @@ spec:
                 annotations:
                   summary: "Instance {{ $labels.instance }}: memory usage high"
                   description: "{{ $labels.instance }} uses more than 70% of it's memory"
+              - alert: InstanceLowCpuUsage
+                expr: (sum(rate(node_cpu_seconds_total{mode="user"}[5m])) by (instance) / count(node_cpu_seconds_total{mode="user"} > 0) by (instance) * 100) < 10
+                for: 1m
+                labels:
+                  severity: warning
+                annotations:
+                  summary: "Instance {{ $labels.instance }}: cpu usage low"
+                  description: "{{ $labels.instance }} uses less than 10% of it's cpu, you are wasting money"
         alertmanager:
           config:
             global:
