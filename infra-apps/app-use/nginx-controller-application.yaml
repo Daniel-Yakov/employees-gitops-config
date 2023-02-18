@@ -12,14 +12,7 @@ spec:
     helm:
       releaseName: ingress-nginx 
       values: |-
-        controller: 
-          metrics:
-            enabled: true 
-            serviceMonitor:
-              additionalLabels: {
-                release: prometheus
-              }
-              enabled: true   
+      {{ .Files.Get "nginx-controller-values.yaml" | nindent 2 }}
   destination:
     server: "https://kubernetes.default.svc"
     namespace: app

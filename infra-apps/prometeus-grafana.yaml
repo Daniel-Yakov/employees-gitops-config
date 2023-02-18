@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: prometeus-grafana
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: git@github.com:Daniel-Yakov/employees-gitops-config.git
+    targetRevision: HEAD
+    path: infra-apps/prometheus-grafana
+  destination:
+    server: "https://kubernetes.default.svc"
+
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
