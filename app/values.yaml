@@ -457,6 +457,8 @@ grafana:
 
 # mongodb subchart
 mongodb:
+  persistence:
+    size: 1Gi
   architecture: replicaset
   arbiter:
     enabled: false
