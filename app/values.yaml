@@ -32,7 +32,6 @@ kibana:
   namespace: logging
   jobName: kibana-import
   serviceName: kibana-kibana
-  userName: elastic
   port: 5601
   dataViewImported: |-
     {"attributes":{"fieldAttrs":"{}","fieldFormatMap":"{}","fields":"[]","name":"employees-logs","runtimeFieldMap":"{}","sourceFilters":"[]","timeFieldName":"@timestamp","title":"logstash-employees","typeMeta":"{}"},"coreMigrationVersion":"8.5.1","id":"3c63b18b-e284-4655-81d1-0b37b3b1c4bd","migrationVersion":{"index-pattern":"8.0.0"},"references":[],"type":"index-pattern","updated_at":"2023-02-17T08:49:44.307Z","version":"WzEzOSwxXQ=="}
