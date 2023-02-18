@@ -55,7 +55,7 @@ spec:
             - name: 'null'
             - name: 'slack-k8s'
               slack_configs:
-              - api_url: 'https://hooks.slack.com/services/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'
+              - api_url: 'https://hooks.slack.com/services/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'
                 channel: '#grafana-alerts'
                 title: '[{{ .Status | toUpper }}{{ if eq .Status "firing" }}:{{ .Alerts.Firing | len }}{{ end }}]'
                 text: >-
