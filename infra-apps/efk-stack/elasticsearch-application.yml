@@ -11,12 +11,13 @@ spec:
     targetRevision: 8.5.1
     helm:
       values: |-
-        extraEnvs:
+        extraEnvs: [
         — name: ELASTIC_PASSWORD
           valueFrom: 
             secretKeyRef:
                     name: elastic-secret
                     key: password
+        ]
       releaseName: elasticsearch
   destination:
     server: "https://kubernetes.default.svc"
