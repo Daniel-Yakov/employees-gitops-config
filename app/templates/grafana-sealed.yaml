@@ -1,0 +1,22 @@
+apiVersion: bitnami.com/v1alpha1
+kind: SealedSecret
+metadata:
+  annotations:
+    sealedsecrets.bitnami.com/cluster-wide: "true"
+  creationTimestamp: null
+  name: grafana-secret
+  namespace: {{ .Values.grafana.namespace }}
+spec:
+  encryptedData:
+    password: AgDu67cqDOi+tp7H3Ixggw0KEdz2tIxyICq1ORXH9Kbz7QWg9KNDm2EDbakLrI/2hiibKOxrPQBsil/CVbOY3aXnEuj9QWcELg/J+YYiGl+y+b79UJzJK+0SFQiRaDxytHLMZmfjK8crcz2vtjEb+RUyTKkqfzNEU5hAviY9PJtIgLWCzrNuKJp6Ic/V92Pf50RWOmZwNvPafd4df/8kpUv6SAteJsFMTAiTRZfTW4rLelH3Yop1c04fESYPjj9jh/c7rkiULZVVtvBhAZuVTQERj1m5gK4A9au3Y19peYQkS5rY0986PJRtvbwPYEq2/17gO0fnh0Gl5rjSttrcs88obkli+iYSvXuwQCpuafqjwm8/f4KOdDU/4RQEfwCT96oCAMYueuBWSedJZl0o8v9VvuOGlXISvhg6KhvBrbJLJQ1EbkGTOpsTel5g7PlHeAUQiqB0qx63NtSV1ocrJp8bQe40eLtIVWuVO1vxLm3M6AstMkcCs8U6yyZ17P1besB60oL+7v9HEj18loaEMP5MMvtdzBjFECXFB6ECefmHY67h9QTIzvLjE7is0ayu2s0QHEW4S4aue2ujpF0S7XusHZVobbZMfuBYGNnxCwTom2v9txWdNKcu8a5Zj4BbEoIp6aHVkqIYBswvj8btX9NkjXClTugp9jObbjjy3UBXMY18A7B1VCIXcSL7xLxuLPwRPguq7Nflxw==
+    username: AgAwVLIl7DvXLibRR3O28EJsyde5ur+PV5QSWRPDgMR/lU2+ZEahNNtBcy9fyOH+afaxeHqD8Z5UeJvZZWDSW0Ykz71R9I8F2W537HRi8X4qrNG7JKnS8k6iUm6vNAOPLqFR2XsudFkL06HtMNhkAL6+yIFqXMwC/MWgfOCCDuFtK9aWDtCGp4eMiQmH8U3pdYyHenagzXEPIUJNdC98kBr5SN/Gck3HYpywOeuOQ/MLiUbYe+biKDdmsZHJy+b6fzbzOosEdIkkvReAsbeDVinvl2IVYsPIgw5j39QehAFZ0kz+fKmKdFs1QqSUq5+whOXsB+nWwqUFE/TtBolifcyPx3p0R0tkr+Xwkd9CPMBL2fXcylV+oAPbcV3OXy3oMjoBjHsHJ9TSyuBRQxYJKAfMGoLj1MNEkh/FPQrVlI0934mOVl30JkLgrCQhDnIiwYJrotvKPZc1CzmoSqQLVyFcOG2JeRGd0bdQXO5LmMT+eWJRNJlzWB29mWxtN5cd9qeCpcEknvOIWMt7mnuXYUUs3cEiZUDOv029wCmBRWwiBvcq+kHgTxGjqgtIQuYndqZLskNsujgyRIE4pRun4NH5gPa07/JAzPb/NmC2rokeGrl1RHgkUfxvurQuNHyBUciSchqDVw2F4gT4lfbs9BFnXBLR7LII9DQz+gslVJMrZ793ClIzoUnAd72fEVlKupeS2S+TOw==
+  template:
+    data: null
+    metadata:
+      annotations:
+        sealedsecrets.bitnami.com/cluster-wide: "true"
+      creationTimestamp: null
+      name: grafana-secret
+      namespace: {{ .Values.grafana.namespace }}
+    type: Opaque
+
