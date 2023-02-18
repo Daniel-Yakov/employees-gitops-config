@@ -12,7 +12,7 @@ spec:
     helm:
       values: |-
         extraEnvs: 
-        — name: ELASTIC_PASSWORD
+        - name: ELASTIC_PASSWORD
           valueFrom: 
             secretKeyRef:
               name: elastic-secret
