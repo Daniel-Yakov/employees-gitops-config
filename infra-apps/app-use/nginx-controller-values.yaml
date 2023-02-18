@@ -1,9 +1,0 @@
-controller: 
-  metrics:
-    enabled: true 
-    # enable prometeus service discovery from different namespace
-    serviceMonitor:
-      additionalLabels: {
-        release: kube-prometheus-stack
-      }
-      enabled: true  

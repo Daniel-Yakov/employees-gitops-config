@@ -12,7 +12,15 @@ spec:
     helm:
       releaseName: ingress-nginx 
       values: |-
-      {{ .Files.Get "nginx-controller-values.yaml" | nindent 2 }}
+        controller: 
+        metrics:
+          enabled: true 
+          # enable prometeus service discovery from different namespace
+          serviceMonitor:
+            additionalLabels: {
+              release: kube-prometheus-stack
+            }
+            enabled: true
   destination:
     server: "https://kubernetes.default.svc"
     namespace: app
