@@ -6,8 +6,8 @@ data:
   default.conf: |-
     server {
       listen 80;
-      root /usr/share/nginx/html/ui;
-      index index.html;
+      root /usr/share/nginx/html;
+      index ui/index.html;
 
       location / {
         add_header From  "nginx";
