@@ -9,7 +9,7 @@ data:
       root /usr/share/nginx/html;
       index index.html;
 
-      location / {
+      location /ui {
         add_header From  "nginx";
         try_files $uri =404;
       }
