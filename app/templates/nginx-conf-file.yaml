@@ -10,15 +10,15 @@ data:
       index index.html;
 
       location /ui {
-        rewrite /ui /;
+        try_files @real;
       }
 
-      location / {
+      location @real {
         add_header From  "nginx";
         try_files $uri =404;
       }
 
-      location /employees {
+      location /ui/employees {
         proxy_pass         http://{{ .Values.service.name }}:{{ .Values.service.portListen }};
         proxy_redirect     off;
 
