@@ -37,6 +37,7 @@ spec:
                   description: "{{ $labels.instance }} uses less than 10% of it's cpu, you are wasting money"
         alertmanager:
           enabled: true
+          # configure alertmanger config using secret
           alertmanagerSpec:
             useExistingSecret: true
             secrets:
