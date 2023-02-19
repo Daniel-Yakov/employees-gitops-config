@@ -37,6 +37,7 @@ spec:
                   description: "{{ $labels.instance }} uses less than 10% of it's cpu, you are wasting money"
         alertmanager:
           alertmanagerSpec:
+            logLevelL debug
             useExistingSecret: true
             configSecret: "alert-manager-secret"  
         prometheus:
