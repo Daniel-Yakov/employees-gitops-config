@@ -10,7 +10,7 @@ data:
       index index.html;
 
       location /ui {
-        try_files @real;
+        try_files $uri @real;
       }
 
       location @real {
