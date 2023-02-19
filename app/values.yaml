@@ -16,7 +16,7 @@ service:
 
 tls:
   enable: true
-  prodCertificate: true
+  prodCertificate: false
   hostname: danielemployees.cloud
   email: daniel577000@gmail.com
   awsRegion: eu-west-3
