@@ -18,14 +18,14 @@ spec:
   - host: {{ .Values.tls.hostname }}
     http:
       paths:
+        # - path: /
+        #   pathType: Prefix
+        #   backend:
+        #     service:
+        #       name: {{ .Values.service.name }}
+        #       port:
+        #         number: {{ .Values.service.portListen }}
         - path: /
-          pathType: Prefix
-          backend:
-            service:
-              name: {{ .Values.service.name }}
-              port:
-                number: {{ .Values.service.portListen }}
-        - path: /ui
           pathType: Prefix
           backend:
             service:
