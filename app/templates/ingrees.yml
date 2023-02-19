@@ -25,10 +25,3 @@ spec:
               name: {{ .Values.service.name }}
               port:
                 number: {{ .Values.service.portListen }}
-        - path: /ui
-          pathType: Prefix
-          backend:
-            service:
-              name: nginx-service
-              port:
-                number: 80
