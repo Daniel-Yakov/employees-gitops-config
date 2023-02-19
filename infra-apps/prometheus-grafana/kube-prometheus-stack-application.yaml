@@ -36,9 +36,11 @@ spec:
                   summary: "Instance {{ $labels.instance }}: cpu usage low"
                   description: "{{ $labels.instance }} uses less than 10% of it's cpu, you are wasting money"
         alertmanager:
+          enabled: true
           alertmanagerSpec:
-            logLeveL: debug
-            configSecret: "alert-manager-secret"  
+            useExistingSecret: true
+            secrets:
+            - alertmanager-prometheus-kube-prometheus-alertmanager
         prometheus:
           prometheusSpec:
             # https://github.com/kubernetes/ingress-nginx/blob/main/docs/user-guide/monitoring.md#configure-prometheus
