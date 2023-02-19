@@ -5,7 +5,7 @@ metadata:
 data:
   default.conf: |-
     server {
-      listen 80;
+      listen 443 ssl;
       root /usr/share/nginx/html;
       index index.html;
 
