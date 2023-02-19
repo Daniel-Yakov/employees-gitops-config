@@ -25,7 +25,7 @@ spec:
               name: {{ .Values.service.name }}
               port:
                 number: {{ .Values.service.portListen }}
-  - host: www.{{ .Values.tls.hostname }}
+  - host: "www.danielemployees.cloud"
     http:
       paths:
         - path: /
