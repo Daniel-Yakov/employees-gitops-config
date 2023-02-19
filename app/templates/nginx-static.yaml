@@ -147,7 +147,7 @@ data:
         )  
     }
 
-  index.html: |-
+  index.js: |-
     $("#main").on("click", "button", function(){
       const method = this.id.split('-')[0]
       const id = this.id.split('-')[1]
