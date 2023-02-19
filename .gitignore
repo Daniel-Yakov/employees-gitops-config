@@ -3,3 +3,5 @@ app/templates/mongo-cred-secret.yml
 app/templates/kibana_secret.yml
 /infra-apps/efk-stack/elastic-secret.yaml
 /app/templates/grafana-secret.yaml
+/infra-apps/prometheus-grafana/alert-manager-config.yaml
+/infra-apps/prometheus-grafana/alert-manager-secret.yaml

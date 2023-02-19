@@ -36,34 +36,8 @@ spec:
                   summary: "Instance {{ $labels.instance }}: cpu usage low"
                   description: "{{ $labels.instance }} uses less than 10% of it's cpu, you are wasting money"
         alertmanager:
-          config:
-            global:
-              resolve_timeout: 5m
-            route:
-              group_by: ['job']
-              # How long to wait to buffer alerts of the same group before sending a notification initially.
-              group_wait: 2m
-              # How long to wait before sending an alert that has been added to a group for which there has already been a notification.
-              group_interval: 4m
-              # How long to wait before re-sending a given alert that has already been sent in a notification.
-              repeat_interval: 4h
-              receiver: 'null'
-              routes:
-              - receiver: 'slack-k8s'
-                continue: true
-            receivers:
-            - name: 'null'
-            - name: 'slack-k8s'
-              slack_configs:
-              - api_url: 'https://hooks.slack.com/services/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'
-                channel: '#grafana-alerts'
-                title: '[{{ .Status | toUpper }}{{ if eq .Status "firing" }}:{{ .Alerts.Firing | len }}{{ end }}]'
-                text: >-
-                  {{ range .Alerts }}
-                    *Alert:* {{ .Annotations.summary }} - `{{ .Labels.severity }}`
-                    *Description:* {{ .Annotations.description }}
-                  {{ end }}
-                send_resolved: true
+          alertmanagerSpec:
+            configSecret: "alert-manager-secret"    
         prometheus:
           prometheusSpec:
             # https://github.com/kubernetes/ingress-nginx/blob/main/docs/user-guide/monitoring.md#configure-prometheus
