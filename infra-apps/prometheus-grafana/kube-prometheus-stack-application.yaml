@@ -38,7 +38,7 @@ spec:
         alertmanager:
           alertmanagerSpec:
             logLeveL: debug
-            useExistingSecret: true
+            useExistingSecret: true 
             configSecret: "alert-manager-secret"  
         prometheus:
           prometheusSpec:
