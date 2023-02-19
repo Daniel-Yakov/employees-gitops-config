@@ -9,16 +9,12 @@ data:
       root /usr/share/nginx/html;
       index index.html;
 
-      location /ui {
-        try_files $uri @real;
-      }
-
-      location @real {
+      location / {
         add_header From  "nginx";
         try_files $uri =404;
       }
 
-      location /ui/employees {
+      location /employees {
         proxy_pass         http://{{ .Values.service.name }}:{{ .Values.service.portListen }};
         proxy_redirect     off;
 
