@@ -27,6 +27,11 @@ ingress:
   name: employees-nginx-ingress
   className: nginx
 
+nginxDeployment:
+  name: nginx-deployment
+  portListen: 80
+  portForward: 80
+
 kibana:
   importDashboards: true
   namespace: logging
