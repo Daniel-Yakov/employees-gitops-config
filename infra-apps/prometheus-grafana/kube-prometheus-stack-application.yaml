@@ -40,7 +40,7 @@ spec:
           alertmanagerSpec:
             useExistingSecret: true
             secrets:
-            - alertmanager-prometheus-kube-prometheus-alertmanager
+            - alertmanager-kube-prometheus-stack-alertmanager
         prometheus:
           prometheusSpec:
             # https://github.com/kubernetes/ingress-nginx/blob/main/docs/user-guide/monitoring.md#configure-prometheus
