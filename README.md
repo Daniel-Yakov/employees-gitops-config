@@ -2,7 +2,8 @@
 ## GitOps config repository
 This repository contains the Helm charts and all manifests required to run the "Employees" application and all other components it needs in a Kubernetes cluster.
 
-These manifests are being managed by ArgoCD, which runs in the cluster. An image of the architecture can be found under architecture.jpg.
+These manifests are being managed by ArgoCD, which runs in the cluster. 
+![Project architecture image](architecture.jpg)
 
 ## Components
 The following components are deployed in the Kubernetes cluster:
