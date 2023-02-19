@@ -24,10 +24,10 @@ spec:
           mountPath: /etc/nginx/conf.d
         - name: static
           mountPath: /usr/share/nginx/html
-    volumes:
-    - name: conf
-      configMap:
-        name: nginx-conf
-    - name: static
-      configMap:
-        name: nginx-static
+      volumes:
+      - name: conf
+        configMap:
+          name: nginx-conf
+      - name: static
+        configMap:
+          name: nginx-static
