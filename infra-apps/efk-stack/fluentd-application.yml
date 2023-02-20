@@ -100,7 +100,7 @@ spec:
               @type elasticsearch
               @log_level info
               include_tag_key true
-              host "elasticsearch-master"
+              host "elasticsearch-master-headless"
               port 9200
               path ""
               user elastic
