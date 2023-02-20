@@ -39,7 +39,7 @@ kibana:
   serviceName: kibana-kibana
   port: 5601
   dataViewImported: |-
-    {"attributes":{"fieldAttrs":"{}","fieldFormatMap":"{}","fields":"[]","name":"employees-logs","runtimeFieldMap":"{}","sourceFilters":"[]","timeFieldName":"@timestamp","title":"logstash-employees","typeMeta":"{}"},"coreMigrationVersion":"8.5.1","id":"3c63b18b-e284-4655-81d1-0b37b3b1c4bd","migrationVersion":{"index-pattern":"8.0.0"},"references":[],"type":"index-pattern","updated_at":"2023-02-18T08:49:44.307Z","version":"WzEzOSwxXQ=="}
+    {"attributes":{"fieldAttrs":"{}","fieldFormatMap":"{}","fields":"[]","name":"employees-logs","runtimeFieldMap":"{}","sourceFilters":"[]","timeFieldName":"@timestamp","title":"logstash-employees","typeMeta":"{}"},"coreMigrationVersion":"8.5.1","id":"3c63b18b-e284-4655-81d1-0b37b3b1c4bd","migrationVersion":{"index-pattern":"8.0.0"},"references":[],"type":"index-pattern","updated_at":"2023-02-17T08:49:44.307Z","version":"WzEzOSwxXQ=="}
     {"excludedObjects":[],"excludedObjectsCount":0,"exportedCount":1,"missingRefCount":0,"missingReferences":[]}
   dashBoardImported: |-
     {
@@ -51,7 +51,7 @@ kibana:
           "namespaces": [
             "default"
           ],
-          "updated_at": "2023-02-18T09:43:34.006Z",
+          "updated_at": "2023-02-17T09:43:34.006Z",
           "version": "WzEwMjEsMV0=",
           "attributes": {
             "title": "employees-dashboard",
@@ -98,7 +98,7 @@ kibana:
           "namespaces": [
             "default"
           ],
-          "updated_at": "2023-02-18T08:49:44.307Z",
+          "updated_at": "2023-02-17T08:49:44.307Z",
           "version": "WzEzOSwxXQ==",
           "attributes": {
             "fieldAttrs": "{}",
