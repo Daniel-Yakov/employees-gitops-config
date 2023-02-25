@@ -12,6 +12,9 @@ spec:
     helm:
       releaseName: fluentd
       values: |-
+        envFrom: 
+        - secretRef:
+            name: elasticsearch-master-credentials
         ## Fluentd configurations with json parsing support:
         fileConfigs:
           01_sources.conf: |-
@@ -103,8 +106,8 @@ spec:
               host "elasticsearch-master-headless"
               port 9200
               path ""
-              user elastic
-              password password
+              user "#{ENV['username']}"
+              password "#{ENV['password']}"
               scheme https
               ssl_verify false
               ssl_version TLSv1_2
