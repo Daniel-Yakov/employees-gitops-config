@@ -6,7 +6,7 @@ deployment:
   name: employees-deployment
   replicaCount: 2
   image: 
-    name: 644435390668.dkr.ecr.eu-west-3.amazonaws.com/employees
+    name: 346965469639.dkr.ecr.eu-central-1.amazonaws.com/employees
     tag: 1.0.12
 
 service:
@@ -16,12 +16,12 @@ service:
 
 tls:
   enable: true
-  prodCertificate: true
+  prodCertificate: false
   hostname: danielemployees.cloud
   email: daniel577000@gmail.com
-  awsRegion: eu-west-3
-  awsHostedZoneID: Z09020131AOXZ3LFNC5KB
-  awsRole: arn:aws:iam::644435390668:role/daniel-cert-manager-route53
+  awsRegion: eu-central-1
+  awsHostedZoneID: Z008113119LG8LRMHDNY0
+  awsRole: arn:aws:iam::346965469639:role/daniel-cert-manager-route53
    
 ingress:
   name: employees-nginx-ingress
@@ -470,4 +470,4 @@ mongodb:
     usernames: ["employees"]
     databases: ["employees"]
     existingSecret: "mongo-cred"
-  replicaCount: 3
+  replicaCount: 1
