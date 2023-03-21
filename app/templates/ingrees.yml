@@ -25,3 +25,10 @@ spec:
               name: nginx-service
               port:
                 number: {{ .Values.nginxDeployment.portListen }}
+        - path: /employees
+          pathType: Prefix
+          backend:
+            service:
+              name: {{ .Values.service.name }}
+              port:
+                number: {{ .Values.service.portListen }}
