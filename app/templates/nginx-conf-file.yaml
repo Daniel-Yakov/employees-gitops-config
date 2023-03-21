@@ -13,14 +13,4 @@ data:
         add_header From  "nginx";
         try_files $uri $uri/ index.html =404;
       }
-
-      # location /employees {
-      #   proxy_pass         http://{{ .Values.service.name }}:{{ .Values.service.portListen }};
-      #   proxy_redirect     off;
-
-      #   proxy_set_header   Host             $host;
-      #   proxy_set_header   X-Real-IP        $remote_addr;
-      #   proxy_set_header   X-Forwarded-For  $proxy_add_x_forwarded_for;
-      #   add_header         From             "backend";
-      # }
     }
