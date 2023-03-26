@@ -16,3 +16,5 @@ The following components are deployed in the Kubernetes cluster:
 
 # Additional Information
 It's worth noting that this configuration repository is intended to be used in conjunction with the source code repository and infrastructure repository to provide a complete DevOps solution for the application.
+[Infrastructure GitHub Repository](https://github.com/Daniel-Yakov/portfolio-infra)
+[GitOps Config GitHub Repository](https://github.com/Daniel-Yakov/employees-gitops-config)
