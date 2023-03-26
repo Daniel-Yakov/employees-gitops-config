@@ -15,6 +15,4 @@ The following components are deployed in the Kubernetes cluster:
 - sealed-secret for storing secrets securely
 
 # Additional Information
-It's worth noting that this configuration repository is intended to be used in conjunction with the source code repository and infrastructure repository to provide a complete DevOps solution for the application.
-[Infrastructure GitHub Repository](https://github.com/Daniel-Yakov/portfolio-infra)
-[GitOps Config GitHub Repository](https://github.com/Daniel-Yakov/employees-gitops-config)
+It's worth noting that this configuration repository is intended to be used in conjunction with the [source code repository](https://github.com/Daniel-Yakov/Employees) and [infrastructure repository](https://github.com/Daniel-Yakov/portfolio-infra) to provide a complete DevOps solution for the application.
